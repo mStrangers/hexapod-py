@@ -50,7 +50,7 @@ class TCPServer(Thread):
         with open('/home/pi/hexapod/software/raspberry pi/config.json', 'r') as read_file:
             self.config = json.load(read_file)
 
-        self.ip = '192.168.1.127'
+        self.ip = '192.168.1.125'
         self.port = 1234
         self.tcp_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
