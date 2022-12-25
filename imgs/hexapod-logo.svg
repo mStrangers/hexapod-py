@@ -6,7 +6,7 @@
    data-icon="microchip"
    class="svg-inline--fa fa-microchip"
    role="img"
-   viewBox="0 0 550 550"
+   viewBox="0 0 512 512"
    version="1.1"
    id="svg4"
    sodipodi:docname="hexapod-logo.svg"
@@ -14,8 +14,8 @@
    inkscape:export-filename="hexapod-logo.png"
    inkscape:export-xdpi="89.367271"
    inkscape:export-ydpi="89.367271"
-   width="550"
-   height="550"
+   width="512"
+   height="512"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +32,7 @@
      inkscape:pagecheckerboard="0"
      showgrid="false"
      inkscape:zoom="1.4042969"
-     inkscape:cx="132.45062"
+     inkscape:cx="70.497913"
      inkscape:cy="156.66203"
      inkscape:window-width="2560"
      inkscape:window-height="1494"
@@ -45,15 +45,14 @@
   <rect
      style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:31.9599;stroke-linecap:round;stroke-linejoin:round"
      id="rect853"
-     width="550"
-     height="550"
+     width="512"
+     height="512"
      x="0"
      y="0"
-     rx="42.613148"
-     ry="42.613148" />
+     rx="32" />
   <g
      id="g7597"
-     transform="matrix(0.75456408,0,0,0.75456408,81.831597,81.94346)"
+     transform="matrix(0.59041865,0,0,0.59041865,104.85283,104.94036)"
      style="stroke-width:1.14163">
     <rect
        style="fill:none;fill-opacity:1;stroke:#979796;stroke-width:34.249;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
