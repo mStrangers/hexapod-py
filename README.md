@@ -100,7 +100,7 @@ PC program source files are located under `./software/pc/`. The compiled program
 | body_top       | <img src="./imgs/body_top.jpg" alt="body_top" width="300"/>             | 1        |
 | body_bottom    | <img src="./imgs/body_bottom.jpg" alt="body_bottom" width="300"/>       | 1        |
 | body_side_wall | <img src="./imgs/body_side_wall.jpg" alt="body_side_wall" width="300"/> | 2        |
-| body_back_wall | <img src="./imgs/body_back_wall.jpg" alt="body_back_wall" width="300"/> | 1        |
+| body_back_wall | <img src="./imgs/body_back_wall.jpg" alt="body_back_wall" width="300"/> | 2        |
 | battery_box    | <img src="./imgs/battery_box.jpg" alt="battery_box" width="300"/>       | 1        |
 | battery_cover  | <img src="./imgs/battery_cover.jpg" alt="battery_cover" width="300"/>   | 1        |
 
