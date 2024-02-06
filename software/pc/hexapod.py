@@ -532,7 +532,7 @@ class MyApp(QtWidgets.QMainWindow):
 
         elif status == TCPClient.CONNECTED:
             self.is_tcp_connected = True
-            self.on_bt_client_connect_button_clicked()
+            #self.on_bt_client_connect_button_clicked()
             self.ui.buttonTcpConnect.setText('Disconnect')
 
             self.ui.button_Refresh.setEnabled(False)

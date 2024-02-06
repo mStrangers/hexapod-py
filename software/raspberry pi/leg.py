@@ -44,10 +44,10 @@ class Leg:
             [angle+self.correction[junction], self.constraint[junction][1]+self.correction[junction], 180])
         set_angle = np.max(
             [set_angle, self.constraint[junction][0]+self.correction[junction], 0])
-        self.junction_servos[junction].angle = set_angle
+        self.junction_servos[junction].degrees = set_angle
 
     def set_raw_angle(self, junction, angle):
-        self.junction_servos[junction].angle = angle
+        self.junction_servos[junction].degrees = angle
 
     def move_junctions(self, angles):
         self.set_angle(0, angles[0])

@@ -8,20 +8,20 @@
         "front_left"
     ],
     "legMountX": [
-        29.41,
-        36.87,
-        29.41,
-        -29.41,
-        -36.87,
-        -29.41
+        73.9,
+        100.4,
+        73.9,
+        -73.9,
+        -100.4,
+        -73.9
     ],
     "legMountY": [
-        55.41,
+        73.9,
         0,
-        -55.41,
-        -55.41,
+        -73.9,
+        -73.9,
         0,
-        55.41
+        73.9
     ],
     "legMountAngle": [
         45,
@@ -31,16 +31,16 @@
         -180,
         -225
     ],
-    "legRootToJoint1": 20.75,
-    "legJoint1ToJoint2": 28.0,
-    "legJoint2ToJoint3": 42.6,
-    "legJoint3ToTip": 89.07,
+    "legRootToJoint1": 9.4,
+    "legJoint1ToJoint2": 34.9,
+    "legJoint2ToJoint3": 93.6,
+    "legJoint3ToTip": 165,
     "movementInterval": 5,
     "movementSwitchDuration": 150,
     "leg0Offset": [
-        10.0,
-        -10.0,
-        -4.0
+        0.0,
+        0.0,
+        0.0
     ],
     "leg0Scale": [
         1,
@@ -48,9 +48,9 @@
         1
     ],
     "leg1Offset": [
-        -8.0,
         0.0,
-        -4.0
+        0.0,
+        0.0
     ],
     "leg1Scale": [
         1,
@@ -58,9 +58,9 @@
         1
     ],
     "leg2Offset": [
-        8.0,
         0.0,
-        -12.0
+        0.0,
+        0.0
     ],
     "leg2Scale": [
         1,
@@ -68,9 +68,9 @@
         1
     ],
     "leg3Offset": [
-        -8.0,
-        4.0,
-        -4.0
+        0.0,
+        0.0,
+        0.0
     ],
     "leg3Scale": [
         1,
@@ -78,9 +78,9 @@
         1
     ],
     "leg4Offset": [
-        -12.0,
         0.0,
-        4.0
+        0.0,
+        0.0
     ],
     "leg4Scale": [
         1,
@@ -88,13 +88,17 @@
         1
     ],
     "leg5Offset": [
-        -16.0,
-        -4.0,
-        4.0
+        0.0,
+        0.0,
+        0.0
     ],
     "leg5Scale": [
         1,
         1,
         1
-    ]
+    ],
+    "standbyPostureJ2": 60,
+    "standbyPostureJ3": 75,
+    "laydownPostureJ2": 0,
+    "laydownPostureJ3": 15
 }

@@ -47,10 +47,10 @@ class TCPServer(Thread):
 
         self.cmd_queue = out_cmd_queue
 
-        with open('/home/pi/hexapod/software/raspberry pi/config.json', 'r') as read_file:
+        with open('/home/mikael/hexapod-py/software/raspberry pi/config.json', 'r') as read_file:
             self.config = json.load(read_file)
 
-        self.ip = '192.168.1.125'
+        self.ip = '172.31.51.32'
         self.port = 1234
         self.tcp_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -96,4 +96,4 @@ class TCPServer(Thread):
         finally:
             self.tcp_socket.close()
             self.cmd_queue.put('standby:')
-            print('exit')
+            print('TCP exit')

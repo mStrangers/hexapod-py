@@ -27,7 +27,8 @@
 # Libraries
 # https://circuitpython.readthedocs.io/projects/servokit/en/latest/
 from audioop import reverse
-from adafruit_servokit import ServoKit
+#from adafruit_servokit import ServoKit
+from ssc32 import SSC32
 
 from leg import Leg
 
@@ -92,7 +93,7 @@ class Hexapod(Thread):
 
         self.calibration_mode = False
 
-        with open('/home/pi/hexapod/software/raspberry pi/config.json', 'r') as read_file:
+        with open('/home/mikael/hexapod-py/software/raspberry pi/config.json', 'r') as read_file:
             self.config = json.load(read_file)
 
         # legs' coordinates
@@ -115,39 +116,39 @@ class Hexapod(Thread):
         self.mount_position[:, 1] = self.mount_y
 
         # Objects
-        self.pca_left = ServoKit(channels=16, address=0x40, frequency=50)
-        self.pca_right = ServoKit(channels=16, address=0x41, frequency=50)
-
+        #self.pca_left = ServoKit(channels=16, address=0x40, frequency=50)
+        #self.pca_right = ServoKit(channels=16, address=0x41, frequency=50)
+        self.ssc = SSC32('/dev/ttyACM0', 115200,count=18, autocommit=1000)
         self.legs = [
             # front right
             Leg(0,
-                [self.pca_right.servo[13], self.pca_right.servo[14],
-                 self.pca_right.servo[15]],
+                [self.ssc[0], self.ssc[1],
+                 self.ssc[2]],
                 correction=self.config.get('leg0Offset', [0, 0, 0])),
             # center right
             Leg(1,
-                [self.pca_right.servo[9], self.pca_right.servo[5],
-                 self.pca_right.servo[6]],
+                [self.ssc[3], self.ssc[4],
+                 self.ssc[5]],
                 correction=self.config.get('leg1Offset', [0, 0, 0])),
             # rear right
             Leg(2,
-                [self.pca_right.servo[3], self.pca_right.servo[0],
-                 self.pca_right.servo[1]],
+                [self.ssc[6], self.ssc[7],
+                 self.ssc[8]],
                 correction=self.config.get('leg2Offset', [0, 0, 0])),
             # rear left
             Leg(3,
-                [self.pca_left.servo[13], self.pca_left.servo[15],
-                 self.pca_left.servo[14]],
+                [self.ssc[9], self.ssc[10],
+                 self.ssc[11]],
                 correction=self.config.get('leg3Offset', [0, 0, 0])),
             # center left
             Leg(4,
-                [self.pca_left.servo[9], self.pca_left.servo[6],
-                 self.pca_left.servo[7]],
+                [self.ssc[12], self.ssc[13],
+                 self.ssc[14]],
                 correction=self.config.get('leg4Offset', [0, 0, 0])),
             # front left
             Leg(5,
-                [self.pca_left.servo[3], self.pca_left.servo[1],
-                 self.pca_left.servo[0]],
+                [self.ssc[15], self.ssc[16],
+                 self.ssc[17]],
                 correction=self.config.get('leg5Offset', [0, 0, 0]))]
 
         # self.leg_0.reset(True)
@@ -157,13 +158,14 @@ class Hexapod(Thread):
         # self.leg_4.reset(True)
         # self.leg_5.reset(True)
 
-        self.standby_posture = self.gen_posture(60, 75)
+        #self.standby_posture = self.gen_posture(60, 75)
+        self.standby_posture = self.gen_posture(self.config.get('standbyPostureJ2', 60), self.config.get('standbyPostureJ3', 75))
 
         self.current_motion = self.standby_posture
 
         self.cmd_dict = {
             self.CMD_STANDBY: self.standby_posture,
-            self.CMD_LAYDOWN: self.gen_posture(0, 15),
+            self.CMD_LAYDOWN: self.gen_posture(self.config.get('laydownPostureJ2', 0), self.config.get('laydownPostureJ3', 15)),
             self.CMD_WALK_0: gen_walk_path(
                 self.standby_posture['coord'], direction=0),
             self.CMD_WALK_180: gen_walk_path(
@@ -351,7 +353,7 @@ class Hexapod(Thread):
     def save_config(self):
         try:
             json.dump(self.config, open(
-                '/home/pi/hexapod/software/raspberry pi/config.json', 'w+'), indent=4)
+                '/home/mikael/hexapod-py/software/raspberry pi/config.json', 'w+'), indent=4)
         except PermissionError as err:
             pass
 
@@ -378,8 +380,8 @@ def main():
     tcp_server = TCPServer(q)
     tcp_server.start()
 
-    bt_server = BluetoothServer(q)
-    bt_server.start()
+    #bt_server = BluetoothServer(q)
+    #bt_server.start()
 
     hexapod = Hexapod(q)
     hexapod.start()
